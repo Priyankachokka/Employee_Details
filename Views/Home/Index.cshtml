@@ -1,0 +1,67 @@
+﻿@model IEnumerable<Employee_Details.Models.UserInfo>
+
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Index</title>
+</head>
+<body>
+    <p>
+        @Html.ActionLink("Create New", "Create")
+    </p>
+    <table class="table" border="1" style="border:solid black;border-collapse: collapse">
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.empId)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.empName)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.empMobile)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.empAddress)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.empDept)
+            </th>
+
+            <th></th>
+        </tr>
+    
+    @foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.empId)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.empName)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.empMobile)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.empAddress)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.empDept)
+        </td>
+
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id = item.empId }) |
+            @Html.ActionLink("Details", "Details", new { id = item.empId }) |
+            @Html.ActionLink("Delete", "Delete", new { id = item.empId })
+        </td>
+    </tr>
+    }
+    
+    </table>
+</body>
+</html>
